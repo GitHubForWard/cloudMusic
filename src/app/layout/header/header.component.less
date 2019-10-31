@@ -1,0 +1,43 @@
+@import '../../../assets/styles/varibles';
+@import '../../../assets/styles/mixins';
+
+.header {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+
+    .left {
+      display: flex;
+
+      h1 {
+        color: @border-color-base;
+        font-size: @font-size-lgx;
+        width: 176px;
+        height: 64px;
+        background: url('./../../../assets/images/topbar.png') no-repeat;
+        background-position-y: -5px;
+      }
+
+      ul {
+        height: 64px;
+        line-height: 64px;
+      }
+    }
+
+    .right {
+      display: flex;
+
+      .member {
+        display: flex;
+        align-items: center;
+        color: @white-color;
+      }
+    }
+  }
+}
+
+
+:host ::ng-deep .ant-back-top {
+  bottom: 80px;
+}
