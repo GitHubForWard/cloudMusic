@@ -18,24 +18,19 @@
             </div>
             <div class="member">
                 <div class="no-login">
-                    <ul nz-menu nzTheme="dark" nzMode="horizontal">
-                        <li nz-submenu>
-                            <div title>
-                                <i nz-icon nzType="user" nzTheme="outline"></i>
-                                <span>登录</span>
-                                <i nz-icon nzType="caret-down" nzTheme="outline"></i>
-                            </div>
-                            <ul>
-                                <li nz-menu-item>
-                                    <i nz-icon nzType="mobile" nzTheme="outline"></i>
+                     <ul nz-menu nzMode="horizontal" nzTheme="dark">
+                        <li nz-submenu nzTitle="登录" nzIcon="user">
+                            <ul class="nzMenuItem">
+                                <li nz-menu-item>
+                                    <i nz-icon nzType="mobile" nzTheme="outline"></i>
                                     手机登录
                                 </li>
-                                <li nz-menu-item>
-                                    <i nz-icon nzType="user-add" nzTheme="outline"></i>
+                                <li nz-menu-item >
+                                    <i nz-icon nzType="user-add" nzTheme="outline"></i>
                                     注册
                                 </li>
                             </ul>
-                        </li>
+                        </li><i nz-icon nzType="caret-down" nzTheme="outline"></i>
                     </ul>
                 </div>
             </div>
