@@ -30,7 +30,25 @@
                     </div>
                     <div class="down">
                         <div class="down-wrap">
-                            <app-single-sheet class="sheet-item" *ngFor="let item of songSheetList" [sheet]="item"></app-single-sheet>
+                            <app-single-sheet class="sheet-item" *ngFor="let item of songSheetList" [sheet]="item">
+                            </app-single-sheet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <app-member-card></app-member-card>
+                <div class="settled-singer">
+                    <div class="tit"><b>入驻歌手</b></div>
+                    <div class="list" *ngFor="let item of singerEnterList">
+                        <div class="card">
+                            <div class="pic">
+                                <img [src]="item.picUrl" alt="">
+                            </div>
+                            <div class="txt">
+                                <b class="ellipsis">{{ item.name }}</b>
+                                <span>专辑数量:{{ item.albumSize }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

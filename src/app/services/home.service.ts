@@ -1,18 +1,30 @@
 import { ServicesModule, API_CONFIG } from './services.module';
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Banner, HotTag, SongSheet } from './data-types/common.types';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Banner, HotTag, SongSheet, Singer } from './data-types/common.types';
 import { map } from 'rxjs/internal/operators';
+import querystring from 'query-string';
+
+interface SingerParams {
+  offset: number;
+  limit: number;
+  cat: string;
+}
 
 @Injectable({
   providedIn: ServicesModule
 })
 export class HomeService {
+  defaultParams: SingerParams = {
+    offset: 1,
+    limit: 9,
+    cat: '5001'
+  };
   constructor(
     private http: HttpClient,
     @Inject(API_CONFIG) private uri: string
-  ) {}
+  ) { }
 
   // 获取轮播图
   getBanners(): Observable<Banner[]> {
@@ -43,4 +55,11 @@ export class HomeService {
       .get(this.uri + 'personalized')
       .pipe(map((res: { result: SongSheet[] }) => res.result.slice(0, 16)));
   }
+
+  // 获取入驻歌手
+  getEnterSinger(args = this.defaultParams): Observable<Singer[]> {
+    const params = new HttpParams({ fromString: querystring.stringify(args) });
+    return this.http.get(this.uri + 'artist/list', { params }).pipe(map((res: { artists: Singer[] }) => res.artists));
+  }
+
 }
