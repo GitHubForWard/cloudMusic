@@ -1,3 +1,4 @@
+import { SheetService } from './../../services/sheet.service';
 import {
   Banner,
   SongSheet,
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   singerEnterList: Singer[];
   @ViewChild(NzCarouselComponent, { static: true })
   private nzCaousel: NzCarouselComponent;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private sheetServ: SheetService) {
     this.route.data.pipe(map(res => res.homeDatas)).subscribe(([banners, hotTags, songSheetList, singer]) => {
       this.banners = banners;
       this.hotTags = hotTags;
@@ -37,6 +38,13 @@ export class HomeComponent implements OnInit {
 
   onChangeSlide(type: 'pre' | 'next') {
     this.nzCaousel[type]();
+  }
+
+  onPlaySheet(id: number) {
+    console.log(id);
+    this.sheetServ.getSongSheetDetail(id).subscribe(response => {
+      console.log(response);
+    });
   }
 
   ngOnInit() { }
