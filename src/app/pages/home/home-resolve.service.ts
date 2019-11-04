@@ -5,7 +5,10 @@ import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { first } from 'rxjs/internal/operators';
 
-type HomeDataType = [Banner[], HotTag[], SongSheet[], Singer[]];
+// type HomeDataType = [Banner[], HotTag[], SongSheet[], Singer[]];
+interface HomeDataType {
+    [key: number]: Banner[] | HotTag[] | SongSheet[] | Singer[];
+}
 
 @Injectable({
     providedIn: 'root',
