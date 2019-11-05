@@ -39,4 +39,9 @@ export interface SongSheet {
   tracks: Song[];
 }
 
+// 播放地址
+export interface SongUrl {
+  id: number;
+  url: string;
+}
 
