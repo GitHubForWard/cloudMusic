@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 // 轮播图
 export interface Banner {
   targetId: number;
@@ -44,4 +45,28 @@ export interface SongUrl {
   id: number;
   url: string;
 }
+
+// 播放条
+export interface CloudSliderStyle {
+  width?: string | null;
+  height?: string | null;
+  bottom?: string | null;
+  left?: string | null;
+}
+
+export interface SlideEventObservableConfig {
+  start: string;
+  move: string;
+  end: string;
+  filter: (e: Event) => boolean;
+  pluckKey: string[];
+  startPlucked$?: Observable<number>;
+  moveResolve$?: Observable<number>;
+  end$?: Observable<Event>;
+}
+
+// export interface SliderValue {
+//   [x: string | number]: number | null;
+// }
+export type SliderValue = number | null;
 
