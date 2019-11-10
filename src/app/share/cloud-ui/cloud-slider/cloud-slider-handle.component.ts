@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
 import { CloudSliderStyle } from 'src/app/services/data-types/common.types';
 
 @Component({
@@ -16,10 +16,9 @@ export class CloudSliderHandleComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges(): void {
-    if (changes['cloudOffset']) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.cloudOffset) {
       this.style[this.cloudVertical ? 'bottom' : 'left'] = this.cloudOffset + '%';
     }
   }
-
 }

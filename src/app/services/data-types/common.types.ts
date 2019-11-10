@@ -54,7 +54,7 @@ export interface CloudSliderStyle {
   left?: string | null;
 }
 
-export interface SlideEventObservableConfig {
+export interface SliderEventObserverConfig {
   start: string;
   move: string;
   end: string;

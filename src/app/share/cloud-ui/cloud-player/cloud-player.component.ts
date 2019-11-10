@@ -9,6 +9,10 @@ export class CloudPlayerComponent implements OnInit {
 
   constructor() { }
 
+  onPercentChange(per: number) {
+    console.log(per);
+  }
+
   ngOnInit() {
   }
 

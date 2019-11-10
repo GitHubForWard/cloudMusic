@@ -17,7 +17,7 @@
                 <i class="mask"></i>
             </div>
             <div class="play">
-                <div class="words clearfix hide">
+                <div class="words clearfix">
                     <p class="ellipsis margin-bottom-none">歌名</p>
                     <ul class="songs clearfix margin-bottom-none">
                         <li>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="bar">
                     <div class="slider-wrap">
-                        <app-cloud-slider></app-cloud-slider>
+                        <app-cloud-slider (wyOnAfterChange)="onPercentChange($event)"></app-cloud-slider>
                     </div>
                     <span class="time">
                         <em>02:00</em>04:35

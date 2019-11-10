@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, SimpleChanges, } from '@angular/core';
 import { CloudSliderStyle } from 'src/app/services/data-types/common.types';
 
 @Component({
@@ -15,8 +15,8 @@ export class CloudSliderTrackComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges(): void {
-    if (changes['cloudLength']) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.cloudLength) {
       if (this.cloudVertical) {
         this.style.height = this.cloudLength + '%';
         this.style.left = null;

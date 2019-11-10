@@ -1,4 +1,4 @@
-<div class="wy-slider" #cloudSlider>
-    <app-cloud-slider-track></app-cloud-slider-track>
-    <app-cloud-slider-handle></app-cloud-slider-handle>
+<div class="wy-slider" #cloudSlider [class.wy-slider-vertical]="cloudVertical">
+    <app-cloud-slider-track [cloudVertical]="cloudVertical" [cloudLength]="offset"></app-cloud-slider-track>
+    <app-cloud-slider-handle [cloudVertical]="cloudVertical" [cloudOffset]="offset"></app-cloud-slider-handle>
 </div>
